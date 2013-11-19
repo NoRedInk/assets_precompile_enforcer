@@ -8,14 +8,14 @@ module Sprockets
           ensure_asset_will_be_precompiled!(source, 'js') if enforce_precompile?
         end
       end
-      alias_method_chain :javascript_include_tag, :enforced_precompile
+      alias_method_chain :javascript_include_tag, :javascript_include_tag_with_enforced_precompile
 
       def stylesheet_link_tag_with_enforced_precompile(*sources)
         sources_without_options(sources).each do |source|
           ensure_asset_will_be_precompiled!(source, 'css') if enforce_precompile?
         end
       end
-      alias_method_chain :stylesheet_link_tag, :enforced_precompile
+      alias_method_chain :stylesheet_link_tag, :stylesheet_link_tag_with_enforced_precompile
 
 
       private
