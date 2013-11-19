@@ -7,7 +7,6 @@ module Sprockets
         sources_without_options(sources).each do |source|
           ensure_asset_will_be_precompiled!(source, 'js') if enforce_precompile?
         end
-        javascript_include_tag_without_enforced_precompile(*sources)
       end
       alias_method_chain :javascript_include_tag, :enforced_precompile
 
@@ -15,7 +14,6 @@ module Sprockets
         sources_without_options(sources).each do |source|
           ensure_asset_will_be_precompiled!(source, 'css') if enforce_precompile?
         end
-        stylesheet_link_tag_without_enforced_precompile(*sources)
       end
       alias_method_chain :stylesheet_link_tag, :enforced_precompile
 
